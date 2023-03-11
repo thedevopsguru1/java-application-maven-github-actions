@@ -13,11 +13,7 @@ pipeline {
     }
     
     stage ("Maven package") {
-    agent {
-    docker {
-      image 'docker:dind'
-    }
-  }
+    
       steps {
       sh 'mvn package'
       }
@@ -25,6 +21,11 @@ pipeline {
     } 
     
     stage ('Docker build') {
+    agent {
+    docker {
+      image 'docker:dind'
+    }
+  }
       steps {
       
       sh 'docker build -t devopstrainingschool/jenkins-java-maven .'
