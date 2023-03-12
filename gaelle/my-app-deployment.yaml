@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-project2-deployment # you can any name here 
+  labels:
+    app: project2 # you can put any label as long as it is a key value pair
+spec:
+  replicas: 3  # define the number of cpods to deploy ( run)
+  selector:
+    matchLabels:
+      app: project2   # same as label
+  template:
+    metadata:
+      labels:
+        app: project2   # same as label
+    spec:
+      containers:
+      - name: sandrine-container # give a container any name you want
+        image: devopstrainingschool/java-maven-project2  # put your docker image here; Don't forget the tag if needed
+        ports:
+        - containerPort: 8080  # put the container port here
