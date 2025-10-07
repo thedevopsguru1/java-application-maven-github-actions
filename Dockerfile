@@ -1,5 +1,5 @@
 #FROM anapsix/alpine-java 
-FROM maven:amazoncorretto
+FROM maven:3.9.11-amazoncorretto-25
 # Maintainer 
 EXPOSE 8080
 LABEL maintainer="Consty"
